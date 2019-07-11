@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>Tweets</title>
+    <div th:replace="fragments/headLinks"></div>
+</head>
+
+<!-- html for each tweet in our list, so we will use th:each="tweet:${tweetList}" to iterate through the list. -->
+<body>
+    <div class="container">
+    	<div th:replace="fragments/navbar"></div>	
+        <h2>Tweets</h2>
+        <div th:each="tweet:${tweetList}">
+            <h5>@<span th:text="${tweet.user.username}"></span>
+            <small><span th:text="${tweet.date}"></span></small></h5>
+            <p th:utext="${tweet.message}"></p>
+    	</div>
+    </div>
+    <div th:replace="fragments/scripts"></div>
+</body>
+</html>
